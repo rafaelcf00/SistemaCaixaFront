@@ -1,6 +1,7 @@
 import { httpClient } from "../../app/http";
 import { Produto } from "../../app/models/produtos";
 import { AxiosResponse } from "axios";
+import { Page } from "../models/common/page";
 
 const resourceURL: string = "/api/produtos";
 
@@ -29,10 +30,29 @@ export const useProdutoService = () => {
     await httpClient.delete(url);
   };
 
+  const find = async (
+    nome: string = "",
+    page: number = 0,
+    size: number = 5
+  ): Promise<Page<Produto>> => {
+    const url = `${resourceURL}?nome=${nome}&page=${page}&size=${size}`;
+    const response: AxiosResponse<Page<Produto>> = await httpClient.get(url);
+    return response.data;
+  };
+
+  const listar = async (): Promise<Produto[]> => {
+    const response: AxiosResponse<Produto[]> = await httpClient.get(
+      resourceURL
+    );
+    return response.data;
+  };
+
   return {
     salvar,
     atualizar,
     carregarProduto,
     deletar,
+    find,
+    listar,
   };
 };

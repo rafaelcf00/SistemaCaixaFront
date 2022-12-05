@@ -7,6 +7,7 @@ import Input, {
   InputCPF,
   InputTelefone,
   InputDate,
+  InputUpperCase,
 } from "../../Common/Formulario/Input";
 import ButtonSubmit from "../../Common/Formulario/ButtonSubmit/";
 import Button from "../../Common/Button/";
@@ -61,7 +62,7 @@ const ClienteForm: React.FC<ClienteFormProps> = ({ cliente, onSubmit }) => {
           </div>
         )}
 
-        <Input
+        <InputUpperCase
           label="Nome: * "
           type="text"
           id="nome"
@@ -143,7 +144,7 @@ const ClienteForm: React.FC<ClienteFormProps> = ({ cliente, onSubmit }) => {
           <div className="mr-3 w-full">
             <Button
               label="Voltar"
-              customClass="bg-red-600 hover:bg-red-400"
+              customClass="bg-red-600 hover:bg-red-400 p-3"
               href="ListagemClientes/"
             />
           </div>

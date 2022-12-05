@@ -1,22 +1,21 @@
-interface MessageProps {
-  tipo: string;
-  field?: string;
-  texto: string;
-}
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export interface Alert {
-  tipo: string;
-  field?: string;
-  texto: string;
-}
-
-export const Message: React.FC<MessageProps> = ({ texto, field, tipo }) => {
+const Message: React.FC = () => {
   return (
-    <article className={`bg-${tipo} text-white p-2 shadow-xl`}>
-      <div>
-        {field && `${field} : `}
-        {texto}
-      </div>
-    </article>
+    <>
+      {toast("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })}
+    </>
   );
 };
+
+export default Message;

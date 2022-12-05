@@ -9,6 +9,7 @@ const Sidebar: React.FC = () => {
           <MenuItem name="Home" href="/" />
           <MenuItem name="Produtos" href="ListagemProdutos/" />
           <MenuItem name="Clientes" href="ListagemClientes/" />
+          <MenuItem name="Venda" href="Vendas/" />
         </ul>
       </div>
     </aside>

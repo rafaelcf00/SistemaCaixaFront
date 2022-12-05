@@ -1,6 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import { formatReal } from "../../../../app/util/money/index";
 import { FormatUtils } from "@4us-dev/utils";
+import { maskUpperCase } from "../../../../app/util/maskUpperCase";
 
 const formatUtils = new FormatUtils();
 
@@ -58,6 +59,10 @@ export default Input;
 
 export const InputMoney: React.FC<InputProps> = (props: InputProps) => {
   return <Input {...props} formatter={formatReal} />;
+};
+
+export const InputUpperCase: React.FC<InputProps> = (props: InputProps) => {
+  return <Input {...props} formatter={maskUpperCase} />;
 };
 
 export const InputCPF: React.FC<InputProps> = (props: InputProps) => {

@@ -2,7 +2,10 @@ import { Produto } from "../../../app/models/produtos";
 import { useFormik } from "formik";
 import { validationSchema } from "./validationSchema";
 
-import Input, { InputMoney } from "../../Common/Formulario/Input";
+import Input, {
+  InputMoney,
+  InputUpperCase,
+} from "../../Common/Formulario/Input";
 import ButtonSubmit from "../../Common/Formulario/ButtonSubmit/";
 import Button from "../../Common/Button/";
 import TextArea from "../../Common/Formulario/Textarea";
@@ -15,8 +18,8 @@ interface ProdutoFormProps {
 const formScheme: Produto = {
   nome: "",
   preco: undefined,
-  descricao: "",
   id: "",
+  estoque: undefined,
   cadastro: "",
 };
 
@@ -52,7 +55,7 @@ const ProdutoForm: React.FC<ProdutoFormProps> = ({ produto, onSubmit }) => {
           </div>
         )}
 
-        <Input
+        <InputUpperCase
           label="Nome: * "
           type="text"
           id="nome"
@@ -78,15 +81,16 @@ const ProdutoForm: React.FC<ProdutoFormProps> = ({ produto, onSubmit }) => {
         />
 
         <div className="flex flex-col">
-          <label htmlFor="" className="font-bold">
-            Descrição
-          </label>
-          <TextArea
-            id="descricao"
-            name="descricao"
-            value={formik.values.descricao}
+          <Input
+            label="Quantidade em Estoque: * "
+            type="number"
+            id="estoque"
+            name="estoque"
+            value={formik.values.estoque}
+            placeholder="Insira a quantidade em estoque do produto: "
             onChange={formik.handleChange}
-            error={formik.errors.descricao}
+            autoComplete="off"
+            error={formik.errors.estoque}
           />
         </div>
 
@@ -94,7 +98,7 @@ const ProdutoForm: React.FC<ProdutoFormProps> = ({ produto, onSubmit }) => {
           <div className="mr-3 w-full">
             <Button
               label="Voltar"
-              customClass="bg-red-600 hover:bg-red-400"
+              customClass="bg-red-600 hover:bg-red-400 p-3"
               href="ListagemProdutos/"
             />
           </div>

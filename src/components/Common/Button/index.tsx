@@ -5,6 +5,7 @@ interface ButtonProps {
   customClass?: string;
   href: string;
   onClick?: any;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
@@ -12,8 +13,11 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     <Link href={props.href}>
       <div>
         <button
-          className={`p-3 rounded-md text-white text-center text-md w-full transition duration-700 ${props.customClass}`}
+          className={`rounded-md text-white text-center text-md w-full transition duration-700 ${
+            props.customClass
+          } ${props.disabled == true && "bg-gray-300 cursor-not-allowed"}`}
           onClick={props.onClick}
+          disabled={props.disabled}
         >
           {props.label}
         </button>
