@@ -7,9 +7,10 @@ const Sidebar: React.FC = () => {
         <h1 className="mb-12 text-xl font-bold block">Sistema de Caixa</h1>
         <ul>
           <MenuItem name="Home" href="/" />
-          <MenuItem name="Produtos" href="ListagemProdutos/" />
-          <MenuItem name="Clientes" href="ListagemClientes/" />
-          <MenuItem name="Venda" href="Vendas/" />
+          <MenuItem name="Produtos" href="../ListagemProdutos/" />
+          <MenuItem name="Clientes" href="../ListagemClientes/" />
+          <MenuItem name="Venda" href="../Vendas/" />
+          <MenuItem name="Relatórios" href="../Vendas/relatorio-vendas" />
         </ul>
       </div>
     </aside>

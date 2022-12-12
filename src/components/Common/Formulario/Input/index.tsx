@@ -44,7 +44,7 @@ const Input: React.FC<InputProps> = ({
           {label}
         </label>
         <input
-          className={`bg-gray-100 mt-2 p-3 ${customClass}`}
+          className={`bg-white border-2 border-solid border-gray-200 mt-2 p-3 ${customClass}`}
           onChange={onInputChange}
           {...InputProps}
           id={id}

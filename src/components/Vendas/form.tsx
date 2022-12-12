@@ -19,6 +19,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Dropdown } from "primereact/dropdown";
 import { validationSchema } from "./validationSchema";
+import { MdCheck, MdEdit, MdRedo, MdDelete } from "react-icons/md";
 
 const formatadorMoney = new Intl.NumberFormat("pt-BR", {
   style: "currency",
@@ -27,6 +28,8 @@ const formatadorMoney = new Intl.NumberFormat("pt-BR", {
 
 interface VendasFormProps {
   onSubmit: (venda: Venda) => void;
+  vendaRealizada: boolean;
+  onNovaVenda: () => void;
 }
 
 const formScheme: Venda = {
@@ -37,7 +40,11 @@ const formScheme: Venda = {
   formaPagamento: "",
 };
 
-const VendasForm: React.FC<VendasFormProps> = ({ onSubmit }) => {
+const VendasForm: React.FC<VendasFormProps> = ({
+  onSubmit,
+  vendaRealizada,
+  onNovaVenda,
+}) => {
   const formasPagamento: String[] = [
     "DINHEIRO",
     "CARTÃO DE CRÉDITO",
@@ -159,16 +166,6 @@ const VendasForm: React.FC<VendasFormProps> = ({ onSubmit }) => {
       }
     }
 
-    // let even = (element) => element == e.query;
-
-    // console.log(arr.some(even));
-
-    // const produtoValid = arr.filter((produto: Produto) => {
-    //   return e.query.toUpperCase().includes(produto.nome?.toUpperCase);
-    // });
-
-    // console.log(produtoValid);
-
     const produtosFiltradosEncontrados = arr.filter((produto: Produto) => {
       return produto.nome.toUpperCase().includes(e.query.toUpperCase());
     });
@@ -196,6 +193,13 @@ const VendasForm: React.FC<VendasFormProps> = ({ onSubmit }) => {
     } else {
       return 0;
     }
+  };
+
+  const realizarNovaVenda = () => {
+    onNovaVenda();
+    formik.resetForm();
+    formik.setFieldValue("itens", []);
+    formik.setFieldTouched("itens", false);
   };
 
   return (
@@ -267,6 +271,22 @@ const VendasForm: React.FC<VendasFormProps> = ({ onSubmit }) => {
               value={formik.values.itens}
               emptyMessage="Nenhum produto adicionado"
             >
+              <Column
+                body={(item: ItemVenda) => {
+                  const handleRemoveItem = () => {
+                    const novaLista = formik.values.itens?.filter(
+                      (iv) => iv.produto.id !== item.produto.id
+                    );
+                    formik.setFieldValue("itens", novaLista);
+                  };
+
+                  return (
+                    <button type="button" onClick={handleRemoveItem}>
+                      <MdDelete className="text-xl text-red-600 transition-all duration-700 hover:text-red-900" />
+                    </button>
+                  );
+                }}
+              />
               <Column field="produto.id" header="Código" />
               <Column field="produto.nome" header="Produto" />
               <Column field="produto.preco" header="Preço Unitário" />
@@ -353,10 +373,21 @@ const VendasForm: React.FC<VendasFormProps> = ({ onSubmit }) => {
             )}
           </div>
         </div>
-        <ButtonSubmit
-          label="Finalizar"
-          customClass="text-white bg-blue-700 mt-5"
-        />
+        {!vendaRealizada && (
+          <ButtonSubmit
+            label="Finalizar"
+            customClass="text-white bg-blue-700 mt-5"
+          />
+        )}
+
+        {vendaRealizada && (
+          <Button
+            href=""
+            label="Nova Venda"
+            onClick={realizarNovaVenda}
+            customClass="text-white bg-green-700 mt-5 p-3"
+          />
+        )}
       </div>
       <Dialog
         header="Atençao!"
