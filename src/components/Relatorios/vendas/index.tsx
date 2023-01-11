@@ -46,6 +46,7 @@ const RelatorioVendas: React.FC = () => {
 
   const formik = useFormik<RelatorioVendasForm>({
     onSubmit: handleSubmit,
+    //@ts-ignore
     initialValues: { cliente: null, dataFim: "", dataInicio: "" },
   });
 

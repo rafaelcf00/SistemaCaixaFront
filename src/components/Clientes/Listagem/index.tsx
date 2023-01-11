@@ -164,6 +164,7 @@ const Clientes: React.FC = () => {
             <Column field="email" header="E-mail" />
             <Column body={actionTemplate} />
           </DataTable>
+
           {clientes.totalElements > clientes.size ? (
             <h1 className="text-gray-600">
               Mostrando um total de {clientes.size}, de {clientes.totalElements}{" "}

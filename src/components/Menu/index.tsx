@@ -3,6 +3,7 @@ import Link from "next/link";
 interface MenuItemProps {
   name: string;
   href: string;
+  onClick?: () => void;
 }
 
 const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
@@ -10,7 +11,9 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
     <div>
       <Link href={props.href}>
         <li className="mb-8">
-          <a className="cursor-pointer">{props.name}</a>
+          <a onClick={props.onClick} className="cursor-pointer">
+            {props.name}
+          </a>
         </li>
       </Link>
     </div>

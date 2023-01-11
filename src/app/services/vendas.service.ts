@@ -22,8 +22,14 @@ export const useVendaService = () => {
     return new Blob([bytes], { type: "application/pdf" });
   };
 
+  const deletarVenda = async (id_produto): Promise<void> => {
+    const url: string = `${resourceURL}/${id_produto}`;
+    await httpClient.delete(url);
+  };
+
   return {
     realizarVenda,
     gerarRelatorioVendas,
+    deletarVenda,
   };
 };

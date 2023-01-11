@@ -11,6 +11,8 @@ import ButtonSubmit from "../../Common/Formulario/ButtonSubmit";
 import { DataTable, DataTablePageParams } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { MdCheck, MdEdit, MdRedo, MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface ConsultaProdutosForm {
   nome?: string;
@@ -57,11 +59,25 @@ const Produtos: React.FC = () => {
 
   const onDelete = (produto: Produto) => {
     if (deletando) {
-      service.deletar(produto.id).then((result) => {
-        //@ts-ignore
-        handlePage(null);
-        setDeletando(false);
-      });
+      service
+        .deletar(produto.id)
+        .then((result) => {
+          //@ts-ignore
+          handlePage(null);
+          setDeletando(false);
+        })
+        .catch((error) => {
+          toast.error(error.response.data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        });
     } else {
       setDeletando(true);
     }
