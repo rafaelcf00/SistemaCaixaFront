@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br id="topo">
 
-## Getting Started
+<p align="center">
+    <a href="#sobre">Sobre</a>  |     
+    <a href="#tecnologias">Tecnologias</a>  |  
+    <a href="#final">Apresentação Final</a>  |
+</p>
 
-First, run the development server:
+<span id="sobre">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## :bookmark_tabs: Sobre o projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Projeto desenvolvido a partir do curso realizado na Udemy, do professor Dougllas Sousa.
+Link do Curso: https://www.udemy.com/course/fullstack-nextjs-spring-boot-react-ts-e-jasper-reports/
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+:pushpin: Status do Projeto: :heavy_check_mark: **Finalizado**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+→ [Voltar ao topo](#topo)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<span id="tecnologias">
 
-## Learn More
+## 🛠️ Tecnologias 🛠️ 
 
-To learn more about Next.js, take a look at the following resources:
+As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na construção do projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /> 
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /> 
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="Javascript" />
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" />
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgresSQL" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+→ [Voltar ao topo](#topo)
+    
+<span id="final">
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## :clapper: Apresentação Final do Projeto :clapper:
+    
+https://user-images.githubusercontent.com/38407095/199858121-1b969a14-84ce-48cf-96ea-1a621a97ca86.mp4
+    
+ 
+→ [Voltar ao topo](#topo)
